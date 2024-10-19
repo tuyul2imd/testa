@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Evaluasi AKIP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .form-container {
+            width: 80%;
+            margin: 0 auto;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        input[type="text"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Formulir Evaluasi Akuntabilitas Kinerja Instansi Pemerintah</h1>
+
+    <div class="form-container">
+        <form id="evaluationForm">
+
+            <!-- Identitas Evaluasi -->
+            <label for="instansi">Nama Instansi</label>
+            <input type="text" id="instansi" name="instansi" placeholder="Masukkan nama instansi..." required>
+
+            <label for="periode">Periode Evaluasi</label>
+            <input type="text" id="periode" name="periode" placeholder="Contoh: 2023 (Tahun)" required>
+
+            <!-- Penilaian Indikator Kinerja -->
+            <h3>Penilaian Kinerja:</h3>
+
+            <label for="target">Target Kinerja (Sesuai SAKIP)</label>
+            <textarea id="target" name="target" rows="3" placeholder="Jelaskan target yang telah ditetapkan..." required></textarea>
+
+            <label for="realisasi">Realisasi Kinerja</label>
+            <textarea id="realisasi" name="realisasi" rows="3" placeholder="Deskripsikan realisasi yang telah dicapai..." required></textarea>
+
+            <label for="skorKinerja">Skor Pencapaian Kinerja (%)</label>
+            <input type="number" id="skorKinerja" name="skorKinerja" placeholder="Masukkan persentase pencapaian (0-100)" required>
+
+            <!-- Penilaian Akuntabilitas -->
+            <h3>Penilaian Akuntabilitas:</h3>
+
+            <label for="akuntabilitas">Evaluasi Tingkat Akuntabilitas</label>
+            <select id="akuntabilitas" name="akuntabilitas" required>
+                <option value="">--Pilih Tingkat Akuntabilitas--</option>
+                <option value="Sangat Baik">Sangat Baik</option>
+                <option value="Baik">Baik</option>
+                <option value="Cukup">Cukup</option>
+                <option value="Kurang">Kurang</option>
+            </select>
+
+            <label for="catatanAkuntabilitas">Catatan Mengenai Akuntabilitas</label>
+            <textarea id="catatanAkuntabilitas" name="catatanAkuntabilitas" rows="3" placeholder="Berikan catatan mengenai akuntabilitas kinerja..." required></textarea>
+
+            <!-- Tindak Lanjut dan Rekomendasi -->
+            <h3>Rekomendasi dan Tindak Lanjut:</h3>
+
+            <label for="rekomendasi">Rekomendasi Perbaikan Kinerja</label>
+            <textarea id="rekomendasi" name="rekomendasi" rows="4" placeholder="Berikan rekomendasi untuk perbaikan kinerja..." required></textarea>
+
+            <label for="tindakLanjut">Rencana Tindak Lanjut</label>
+            <textarea id="tindakLanjut" name="tindakLanjut" rows="4" placeholder="Masukkan rencana tindak lanjut..." required></textarea>
+
+            <!-- Submit Form -->
+            <button type="submit">Kirim Evaluasi</button>
+
+        </form>
+    </div>
+
+    <script>
+        // Mengirim data evaluasi
+        document.getElementById('evaluationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Mendapatkan nilai dari formulir
+            let formData = {
+                instansi: document.getElementById('instansi').value,
+                periode: document.getElementById('periode').value,
+                target: document.getElementById('target').value,
+                realisasi: document.getElementById('realisasi').value,
+                skorKinerja: document.getElementById('skorKinerja').value,
+                akuntabilitas: document.getElementById('akuntabilitas').value,
+                catatanAkuntabilitas: document.getElementById('catatanAkuntabilitas').value,
+                rekomendasi: document.getElementById('rekomendasi').value,
+                tindakLanjut: document.getElementById('tindakLanjut').value
+            };
+
+            // Menampilkan hasil untuk tujuan demonstrasi (dapat diganti dengan proses pengiriman ke server)
+            console.log('Data Formulir:', formData);
+
+            // Reset form setelah pengiriman
+            alert('Evaluasi berhasil dikirim!');
+            document.getElementById('evaluationForm').reset();
+        });
+    </script>
+
+</body>
+</html>
